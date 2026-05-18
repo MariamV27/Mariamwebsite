@@ -5,33 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mariam Velasquez - About</title>
-    <meta name="description" content="About Mariam Velasquez.">
+    <meta name="description" content="About Mariam Velasquez — QA Engineer based in Madrid.">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header class="header">
         <div class="header-left"><a href="index.html">Mariam Velasquez</a></div>
-        <div class="header-right"></div>
+        <div class="header-center"><a href="portfolio.html">Portfolio</a></div>
+        <div class="header-right"><a href="about.html">About</a></div>
+
+        <!-- Mobile hamburger (CSS-only) -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu">
+        <label for="menu-toggle" class="hamburger-label" aria-label="Menu">
+            <span class="hamburger-icon"></span>
+        </label>
+
+        <nav class="mobile-nav" aria-label="Mobile navigation">
+            <ul>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="about-content">
         <div class="page-title">About</div>
 
         <div class="about-image-container">
-            <!-- Add your photo here -->
-            <img src="pictures/Mariam_bright.jpg" alt="Portrait" class="about-image">
+            <img src="pictures/Mariam_bright.jpg" alt="Portrait of Mariam Velasquez" class="about-image">
         </div>
 
         <div class="about-text">
             <p>Mariam Velasquez is an QA Engineer based out of Madrid.</p>
-            <p>
-
-            </p>
         </div>
     </main>
 
-    <!-- Optionally you can add the footer here if needed, but the screenshot only shows content -->
+    <footer class="footer">
+        <div class="footer-left">
+            For all inquiries <a href="mailto:mariamvelasquez27@gmail.com">mariamvelasquez27@gmail.com</a>
+        </div>
+        <div class="footer-right">
+            Curious about QA, AI, Blockchain, and restaurant curator, Madrid-Spain<br>
+            mariam velasquez 2025. All rights reserved.
+        </div>
+    </footer>
 </body>
 
 </html>

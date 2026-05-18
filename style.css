@@ -24,14 +24,19 @@ body {
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Tripartite Header */
+/* ========================================
+   HEADER & NAVIGATION
+   ======================================== */
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     padding-bottom: 2rem;
+    position: relative;
 }
 
 .header-left,
@@ -52,7 +57,92 @@ body {
     text-align: right;
 }
 
-/* Central Image Area */
+/* Desktop nav links */
+.header a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.header a:hover {
+    opacity: 0.6;
+}
+
+/* ========================================
+   HAMBURGER MENU (CSS-only, mobile only)
+   ======================================== */
+
+/* Hidden checkbox drives the toggle */
+.menu-toggle {
+    display: none;
+}
+
+/* Hamburger icon — hidden on desktop */
+.hamburger-label {
+    display: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: -6px;
+    z-index: 1001;
+}
+
+.hamburger-icon {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-color);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-color);
+    position: absolute;
+    transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.hamburger-icon::before {
+    top: -7px;
+}
+
+.hamburger-icon::after {
+    top: 7px;
+}
+
+/* Animate hamburger → X when checked */
+.menu-toggle:checked + .hamburger-label .hamburger-icon {
+    background-color: transparent;
+}
+
+.menu-toggle:checked + .hamburger-label .hamburger-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.menu-toggle:checked + .hamburger-label .hamburger-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* Mobile nav overlay — hidden by default */
+.mobile-nav {
+    display: none;
+}
+
+/* ========================================
+   CENTRAL IMAGE AREA
+   ======================================== */
+
 .main-content {
     flex-grow: 1;
     display: flex;
@@ -79,7 +169,10 @@ body {
     object-fit: contain;
 }
 
-/* Links */
+/* ========================================
+   LINKS
+   ======================================== */
+
 a {
     text-decoration: none;
     color: inherit;
@@ -90,7 +183,10 @@ a:hover {
     opacity: 0.6;
 }
 
-/* About Page specific */
+/* ========================================
+   ABOUT PAGE
+   ======================================== */
+
 .about-content {
     flex-grow: 1;
     display: flex;
@@ -134,7 +230,10 @@ a:hover {
     margin-bottom: 1.5rem;
 }
 
-/* Portfolio Page specific */
+/* ========================================
+   PORTFOLIO PAGE
+   ======================================== */
+
 .portfolio-content {
     flex-grow: 1;
     display: flex;
@@ -169,7 +268,10 @@ a:hover {
     object-fit: contain;
 }
 
-/* Two-column Footer */
+/* ========================================
+   FOOTER
+   ======================================== */
+
 .footer {
     display: flex;
     justify-content: space-between;
@@ -190,31 +292,22 @@ a:hover {
     max-width: 50%;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .image-container {
-        padding: 1rem;
-    }
-
-    .footer {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        text-align: center;
-    }
-
-    .footer-left,
-    .footer-right {
-        text-align: center;
-        max-width: 100%;
-    }
-
-    .header {
-        font-size: 12px;
-    }
+.footer a {
+    color: #444;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
 }
 
-/* Resume and Experience Sections */
+.footer a:hover {
+    border-bottom-color: #444;
+    opacity: 1;
+}
+
+/* ========================================
+   RESUME / EXPERIENCE SECTIONS
+   ======================================== */
+
 .resume-section {
     width: 100%;
     max-width: 600px;
@@ -263,4 +356,202 @@ a:hover {
     line-height: 1.6;
     color: #444;
     text-align: justify;
+}
+
+/* ========================================
+   RESPONSIVE — TABLET (≤ 768px)
+   ======================================== */
+
+@media (max-width: 768px) {
+    .image-container {
+        padding: 1rem;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-right {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .header {
+        font-size: 12px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE (≤ 600px)
+   ======================================== */
+
+@media (max-width: 600px) {
+
+    :root {
+        --padding-screen: 5vw;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    /* --- Hide desktop nav, show hamburger --- */
+
+    .header-center,
+    .header-right {
+        display: none;
+    }
+
+    .header-left {
+        flex: none;
+    }
+
+    .header {
+        font-size: 14px;
+        padding-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .hamburger-label {
+        display: flex;
+    }
+
+    /* --- Mobile nav overlay --- */
+
+    .mobile-nav {
+        display: block;
+        flex-basis: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, opacity 0.3s ease;
+        opacity: 0;
+        width: 100%;
+        background-color: var(--bg-color);
+        border-bottom: 1px solid #e0e0e0;
+        order: 10;
+    }
+
+    .menu-toggle:checked ~ .mobile-nav {
+        max-height: 200px;
+        opacity: 1;
+        margin-top: 0.5rem;
+    }
+
+    .mobile-nav ul {
+        list-style: none;
+        padding: 0.5rem 0;
+    }
+
+    .mobile-nav li {
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .mobile-nav li:first-child {
+        border-top: none;
+    }
+
+    .mobile-nav a {
+        display: flex;
+        align-items: center;
+        min-height: 48px;
+        padding: 0 0.5rem;
+        font-size: 15px;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: background-color 0.15s ease;
+    }
+
+    .mobile-nav a:hover {
+        background-color: #f5f5f5;
+        opacity: 1;
+    }
+
+    /* --- Image sizing --- */
+
+    .image-container {
+        padding: 0.5rem;
+    }
+
+    .main-image {
+        max-height: 75vh;
+    }
+
+    .about-image {
+        max-height: 50vh;
+    }
+
+    .about-image-container {
+        min-height: 150px;
+    }
+
+    /* --- Page title --- */
+
+    .page-title {
+        margin-bottom: 2rem;
+        font-size: 15px;
+    }
+
+    /* --- Resume items: stack role & date vertically --- */
+
+    .resume-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .resume-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+    }
+
+    .resume-date {
+        text-align: left;
+        margin-left: 0;
+        font-size: 12px;
+        color: #666;
+    }
+
+    .resume-item-container {
+        margin-bottom: 2rem;
+    }
+
+    .resume-description {
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .resume-section h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    /* --- Footer mobile --- */
+
+    .footer {
+        padding-top: 1.5rem;
+        margin-top: 1rem;
+        border-top: 1px solid #e0e0e0;
+        font-size: 12px;
+        gap: 0.75rem;
+    }
+
+    /* --- About text --- */
+
+    .about-text {
+        font-size: 14px;
+        padding: 0 0.5rem;
+    }
+
+    /* --- Portfolio gallery --- */
+
+    .portfolio-gallery {
+        gap: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .portfolio-image-container {
+        min-height: 200px;
+    }
 }
