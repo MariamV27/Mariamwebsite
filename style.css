@@ -1,0 +1,266 @@
+/* Swiss Minimalism */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --font-family-serif: "Times New Roman", Times, serif;
+    --padding-screen: 3vw;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family-serif);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-screen);
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tripartite Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 2rem;
+}
+
+.header-left,
+.header-center,
+.header-right {
+    flex: 1;
+}
+
+.header-left {
+    font-weight: normal;
+}
+
+.header-center {
+    text-align: center;
+}
+
+.header-right {
+    text-align: right;
+}
+
+/* Central Image Area */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.image-container {
+    width: 100%;
+    /* Safety padding around the image as requested */
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.main-image {
+    max-width: 100%;
+    max-height: 70vh;
+    /* Keeps image strictly within viewport mostly */
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.6;
+}
+
+/* About Page specific */
+.about-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.page-title {
+    margin-bottom: 3rem;
+    font-size: 14px;
+}
+
+.about-image-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 200px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image {
+    max-width: 100%;
+    max-height: 45vh;
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.about-text {
+    text-align: center;
+    max-width: 600px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+/* Portfolio Page specific */
+.portfolio-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.portfolio-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 4rem;
+    /* Generous spacing between stacked images */
+    margin-bottom: 4rem;
+}
+
+.portfolio-image-container {
+    width: 100%;
+    max-width: 750px;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.portfolio-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Two-column Footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 2rem;
+    font-size: 13px;
+    color: #444;
+    /* Slightly muted for footer to improve hierarchy */
+}
+
+.footer-left {
+    text-align: left;
+    max-width: 50%;
+}
+
+.footer-right {
+    text-align: right;
+    max-width: 50%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .image-container {
+        padding: 1rem;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-right {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .header {
+        font-size: 12px;
+    }
+}
+
+/* Resume and Experience Sections */
+.resume-section {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 4rem;
+}
+
+.resume-section h2 {
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.resume-item-container {
+    margin-bottom: 2.5rem;
+}
+
+.resume-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.resume-role {
+    font-weight: bold;
+}
+
+.resume-company {
+    font-style: italic;
+    color: #444;
+}
+
+.resume-date {
+    font-size: 13px;
+    text-align: right;
+    white-space: nowrap;
+    margin-left: 1rem;
+}
+
+.resume-description {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #444;
+    text-align: justify;
+}
