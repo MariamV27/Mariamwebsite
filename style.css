@@ -311,13 +311,13 @@ a:hover {
 .resume-section {
     width: 100%;
     max-width: 600px;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .resume-section h2 {
     font-size: 14px;
     font-weight: normal;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     border-bottom: 1px solid #000;
     padding-bottom: 0.5rem;
     text-transform: uppercase;
@@ -325,14 +325,14 @@ a:hover {
 }
 
 .resume-item-container {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .resume-item {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .resume-role {
