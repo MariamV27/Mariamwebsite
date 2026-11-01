@@ -44,9 +44,7 @@ body {
 }
 
 .header-nav {
-    display: flex;
-    gap: 2rem;
-    align-items: baseline;
+    display: contents;
 }
 
 /* Desktop nav links */
