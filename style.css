@@ -39,22 +39,14 @@ body {
     position: relative;
 }
 
-.header-left,
-.header-center,
-.header-right {
-    flex: 1;
-}
-
 .header-left {
     font-weight: normal;
 }
 
-.header-center {
-    text-align: center;
-}
-
-.header-right {
-    text-align: right;
+.header-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: baseline;
 }
 
 /* Desktop nav links */
@@ -401,8 +393,7 @@ a:hover {
 
     /* --- Hide desktop nav, show hamburger --- */
 
-    .header-center,
-    .header-right {
+    .header-nav {
         display: none;
     }
 
